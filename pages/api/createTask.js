@@ -13,25 +13,17 @@ export default async function handler(req, res) {
 
     const client = await clientPromise;
     const db = client.db("Tasks");
-    // const users = await db.collection("Profiles").find({"Username": username}).toArray();
-    // if (users.length > 0){
-    //     res.redirect("/signup?msg=A user already has this username");
-    //     return;
-    // }
-    // const password_hash = createHash('sha256').update(password).digest('hex');
     const currentDate = new Date().toUTCString();
     const bodyObject = {
         Username: username,
-        // Password: password_hash,
         Created: currentDate,
         Taskname: taskname,
         Taskdesc: taskdesc,
-        Duedata: duedate
+        Duedate: duedate
     }
     await db.collection("Tasks").insertOne(bodyObject);
-    // const cookies = new Cookies(req, res)
     cookies.set('username', username)
-    res.redirect("/")
+    res.redirect("/tasks")
   } else {
     res.redirect("/")
   }

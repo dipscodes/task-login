@@ -8,7 +8,6 @@ export default function CreateTask( {username, created} ) {
 
     const router = useRouter()
     const { msg } = router.query
-    console.log(username, created);
     return (
         <Layout pageTitle="Create Task">
             <Link href="/">Home</Link><br/>
@@ -36,7 +35,7 @@ export async function getServerSideProps(context) {
         return {
             redirect: {
                 permanent: false,
-                destination: "/"
+                destination: "/createTask"
             }
         }
     }
