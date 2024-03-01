@@ -1,4 +1,4 @@
-import Cookies from 'cookies'
+import Cookies from 'cookies';
 import clientPromise from "../../lib/mongodb";
 const {createHash} = require('node:crypto');
 

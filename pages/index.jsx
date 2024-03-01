@@ -1,6 +1,6 @@
-import Layout from '../components/layout'
+import Layout from '../components/layout';
 import { getCookie } from 'cookies-next';
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function HomePage( {username} ) {
     return (
@@ -9,6 +9,8 @@ export default function HomePage( {username} ) {
         <>
             <h2>Hi {username}</h2>
             <Link href="/profile">Profile</Link><br/>
+            <Link href="/tasks">All Tasks</Link><br/>
+            <Link href="/createTask">Create a Task</Link><br/>
             <Link href="/api/logout">Logout</Link>
         </>: 
         <>

@@ -1,7 +1,7 @@
-# Login and Signup with Next.js
+# Task Management with User Login and Signup
 
-This template uses Next.js and MongoDB to create a simple login and signup website.
+Simple Task Management with database connectivity. Each user has different Task Management Space.
 
 To use this template, simply fork the repo, and added your MongoDB URI to the `.env` file with the key `MONGODB_URI`.
 
-To view the template in action, visit https://login-signup-nextjs.vercel.app
+To view the template in action, visit 
