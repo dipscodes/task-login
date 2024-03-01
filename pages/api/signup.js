@@ -28,6 +28,7 @@ export default async function handler(req, res) {
     await db.collection("Profiles").insertOne(bodyObject);
     const cookies = new Cookies(req, res)
     cookies.set('username', username)
+    cookies.set('password_hash', password_hash)
     res.redirect("/")
   } else {
     res.redirect("/")
