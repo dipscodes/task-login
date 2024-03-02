@@ -49,7 +49,7 @@ export default function ProfilePage( {username, tasks} ) {
 						>
 							<div
 								role="textbox"
-								className="px-1 mx-3 w-full h-[20px] text-white focus:outline-none text-2xl flex flex-row justify-evenly items-center bg-transparent whitespace-nowrap"
+								className="px-1 mx-3 w-full h-[20px] text-white focus:outline-none text-2xl flex flex-col justify-evenly items-start bg-transparent whitespace-nowrap"
 							>
 									<span
 										className="highlight rounded-md px-2 ml-1"
