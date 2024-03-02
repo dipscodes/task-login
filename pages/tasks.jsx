@@ -39,7 +39,7 @@ export default function ProfilePage( {username, tasks} ) {
 			{JSON.parse(tasks).map((task, index) => 
 				(<div
 						key={`${task._id}`}
-						className="w-1/2 search-selection my-4 min-w-[700px]"
+						className="w-1/2 search-selection my-4 min-w-[500px]"
 					>
 						<div
 							className="w-auto item outsight"
