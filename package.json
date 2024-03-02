@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "cookies": "^0.8.0",
     "cookies-next": "^2.1.1",
     "mongodb": "^5.2.0",
@@ -16,7 +17,8 @@
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.43.9"
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
