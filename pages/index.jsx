@@ -8,16 +8,16 @@ export default function HomePage( {username} ) {
         {username ?
         <>
             <h2 className="m-2 text-3xl">Hi {username}</h2>
-            <Link href="/profile" className="m-2 text-2xl">Profile</Link><br/>
-            <Link href="/tasks" className="m-2 text-2xl">All Tasks</Link><br/>
-            <Link href="/createTask" className="m-2 text-2xl">Create a Task</Link><br/>
-            <Link href="/api/logout" className="m-2 text-2xl">Logout</Link>
+            <Link href="/profile" className="my-5 text-2xl">Profile</Link><br/>
+            <Link href="/tasks" className="my-5 text-2xl">All Tasks</Link><br/>
+            <Link href="/createTask" className="my-5 text-2xl">Create a Task</Link><br/>
+            <Link href="/api/logout" className="my-5 text-2xl">Logout</Link>
         </>: 
-        <>
+        <div className="">
             <h2 className="m-2 text-3xl">Task Manager</h2>
             <Link className="m-2 text-2xl" href="/login">Login</Link><br/>
             <Link className="m-2 text-2xl" href="/signup">Signup</Link>
-        </>
+        </div>
         }
         </Layout>
     );

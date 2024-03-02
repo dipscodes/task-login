@@ -39,7 +39,7 @@ export default function ProfilePage( {username, tasks} ) {
 			{JSON.parse(tasks).map((task, index) => 
 				(<div
 						key={`${task._id}`}
-						className="w-1/2 search-selection my-4"
+						className="w-1/2 search-selection my-4 min-w-[700px]"
 					>
 						<div
 							className="w-auto item outsight"
@@ -49,12 +49,22 @@ export default function ProfilePage( {username, tasks} ) {
 						>
 							<div
 								role="textbox"
-								className="px-1 mx-3 w-full h-[20px] text-white focus:outline-none text-2xl flex flex-row justify-start items-center bg-transparent whitespace-nowrap"
+								className="px-1 mx-3 w-full h-[20px] text-white focus:outline-none text-2xl flex flex-row justify-evenly items-center bg-transparent whitespace-nowrap"
 							>
 									<span
 										className="highlight rounded-md px-2 ml-1"
 									>
 										{task.Taskname}
+									</span>
+									<span
+										className="highlight rounded-md px-2 ml-1"
+									>
+										{task.Taskdesc}
+									</span>
+									<span
+										className="highlight rounded-md px-2 ml-1"
+									>
+										{task.Duedate}
 									</span>
 							</div>
 							<div className="flex flex-col h-full justify-evenly">
