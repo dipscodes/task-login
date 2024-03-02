@@ -2,19 +2,49 @@ import Layout from '../components/layout';
 import { getCookie } from 'cookies-next';
 import Link from 'next/link';
 import clientPromise from "../lib/mongodb";
-import { HiOutlineDuplicate } from "react-icons/hi";
 import { RxCrossCircled } from "react-icons/rx";
+import { GoPencil  } from "react-icons/go";
 
 export default function ProfilePage( {username, tasks} ) {
+	const closeOption = async (taskid) => {
+    try {
+      await fetch('/api/deleteTask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ taskid: taskid }),
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+	const updateTask = async (task) => {
+		console.log(task);
+		const dataToSend = task; // Your data object
+    const queryParams = new URLSearchParams(dataToSend).toString();
+    window.location.href = `/task?${queryParams}`;
+    // try {
+    //   await fetch('/api/deleteTask', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ taskid: taskid }),
+    //   });
+    // } catch (error) {
+    //   console.error('Error:', error);
+    // }
+  };
+
 	return (
 		<Layout pageTitle="Tasks">
-			<Link href="/">Home</Link><br/>
-			<h2>{username}'s Tasks</h2>
-			<p>List of Tasks</p>
-			<div className='w-full flex flex-row justify-center'>
-			{JSON.parse(tasks).map((item, index) => 
+			<Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-2xl" href="/">Home</Link><br/>
+			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center" >{username}'s Tasks</h2>
+			<div className="w-full flex flex-row justify-center mt-5">
+			{JSON.parse(tasks).map((task, index) => 
 				(<div
-						key={`${item}-${index}`}
+						key={`${task._id}`}
 						className="w-1/2 search-selection"
 					>
 						<div
@@ -30,19 +60,23 @@ export default function ProfilePage( {username, tasks} ) {
 									<span
 										className="highlight rounded-md px-2 ml-1"
 									>
+										{task.Taskname}
 									</span>
 							</div>
 							<div className="flex flex-col h-full justify-evenly">
 								<RxCrossCircled
 									size={35}
 									className="cursor-pointer text-slate-400"
-									onClick={() => closeOption(index)}
+									onClick={() => closeOption(task._id)}
 								/>
-								<HiOutlineDuplicate
-									size={35}
+								<Link href="/task?id=1">
+									<GoPencil
+									size={30}
 									className="cursor-pointer text-slate-400"
-									onClick={() => duplicateIdea(index)}
+									onClick={() => updateTask(task)}
 								/>
+								</Link>
+								
 							</div>
 						</div>
 					</div>)

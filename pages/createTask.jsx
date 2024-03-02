@@ -6,25 +6,25 @@ import clientPromise from "../lib/mongodb";
 
 export default function CreateTask( {username, created} ) {
 
-    const router = useRouter()
-    const { msg } = router.query
-    return (
-        <Layout pageTitle="Create Task">
-            <Link href="/">Home</Link><br/>
-            {msg ?
-                <h3 className="red">{msg}</h3>
-            :
-                <></>
-            }
-            <h2>Create a Task</h2>
-            <form action='/api/createTask' method='POST'>
-                <input minLength="1" name="taskname" id="taskname" type="text" placeholder='Task Name' required></input><br/>
-                <input minLength="1" name="taskdesc" id="taskdesc" type="text" placeholder='Description' required></input><br/>
-                <input name="duedate" id="duedate" type="date" placeholder='Due Date' required></input><br/>
-                <input type="submit" value="Create Task"/>
-            </form>
-        </Layout>
-    );
+	const router = useRouter()
+	const { msg } = router.query
+	return (
+		<Layout pageTitle="Create Task">
+			<Link href="/">Home</Link><br/>
+			{msg ?
+				<h3 className="red">{msg}</h3>
+			:
+				<></>
+			}
+			<h2>Create a Task</h2>
+			<form action='/api/createTask' method='POST'>
+				<input minLength="1" name="taskname" id="taskname" type="text" placeholder='Task Name' required></input><br/>
+				<input minLength="1" name="taskdesc" id="taskdesc" type="text" placeholder='Description' required></input><br/>
+				<input name="duedate" id="duedate" type="date" placeholder='Due Date' required></input><br/>
+				<input type="submit" value="Create Task"/>
+			</form>
+		</Layout>
+	);
 }
 
 export async function getServerSideProps(context) {
