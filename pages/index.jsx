@@ -7,16 +7,16 @@ export default function HomePage( {username} ) {
         <Layout pageTitle="Home">
         {username ?
         <>
-            <h2>Hi {username}</h2>
-            <Link href="/profile">Profile</Link><br/>
-            <Link href="/tasks">All Tasks</Link><br/>
-            <Link href="/createTask">Create a Task</Link><br/>
-            <Link href="/api/logout">Logout</Link>
+            <h2 className="m-2 text-3xl">Hi {username}</h2>
+            <Link href="/profile" className="m-2 text-2xl">Profile</Link><br/>
+            <Link href="/tasks" className="m-2 text-2xl">All Tasks</Link><br/>
+            <Link href="/createTask" className="m-2 text-2xl">Create a Task</Link><br/>
+            <Link href="/api/logout" className="m-2 text-2xl">Logout</Link>
         </>: 
         <>
-            <h2>Log in</h2>
-            <Link href="/login">Login</Link><br/>
-            <Link href="/signup">Signup</Link>
+            <h2 className="m-2 text-3xl">Task Manager</h2>
+            <Link className="m-2 text-2xl" href="/login">Login</Link><br/>
+            <Link className="m-2 text-2xl" href="/signup">Signup</Link>
         </>
         }
         </Layout>

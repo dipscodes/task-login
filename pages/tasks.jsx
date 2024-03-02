@@ -6,46 +6,40 @@ import { RxCrossCircled } from "react-icons/rx";
 import { GoPencil  } from "react-icons/go";
 
 export default function ProfilePage( {username, tasks} ) {
-	const closeOption = async (taskid) => {
-    try {
-      await fetch('/api/deleteTask', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ taskid: taskid }),
-      });
-    } catch (error) {
-      console.error('Error:', error);
-    }
+	const deleteOption = async (taskid) => {
+		if (confirm("Are you sure you want to delete?")) {
+
+			try {
+				await fetch('/api/deleteTask', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ taskid: taskid }),
+				}).then(response => {
+					if (response.ok) window.location.reload();
+				});
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		}
   };
 	const updateTask = async (task) => {
 		console.log(task);
-		const dataToSend = task; // Your data object
+		const dataToSend = task;
     const queryParams = new URLSearchParams(dataToSend).toString();
     window.location.href = `/task?${queryParams}`;
-    // try {
-    //   await fetch('/api/deleteTask', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ taskid: taskid }),
-    //   });
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // }
   };
 
 	return (
 		<Layout pageTitle="Tasks">
-			<Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-2xl" href="/">Home</Link><br/>
-			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center" >{username}'s Tasks</h2>
-			<div className="w-full flex flex-row justify-center mt-5">
+			<Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-3xl" href="/">Home</Link><br/>
+			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl my-5" >{username}'s Tasks</h2>
+			<div className="w-full flex flex-col justify-center mt-5 items-center">
 			{JSON.parse(tasks).map((task, index) => 
 				(<div
 						key={`${task._id}`}
-						className="w-1/2 search-selection"
+						className="w-1/2 search-selection my-4"
 					>
 						<div
 							className="w-auto item outsight"
@@ -67,9 +61,9 @@ export default function ProfilePage( {username, tasks} ) {
 								<RxCrossCircled
 									size={35}
 									className="cursor-pointer text-slate-400"
-									onClick={() => closeOption(task._id)}
+									onClick={() => deleteOption(task._id)}
 								/>
-								<Link href="/task?id=1">
+								<Link href="/task">
 									<GoPencil
 									size={30}
 									className="cursor-pointer text-slate-400"
@@ -90,6 +84,15 @@ export async function getServerSideProps(context) {
 	const req = context.req
 	const res = context.res
 	var username = getCookie('username', { req, res });
+	if (username == undefined){
+			return {
+					redirect: {
+							permanent: false,
+							destination: "/tasks"
+					}
+			}
+	}
+	// var username = getCookie('username', { req, res }); 
 	const client = await clientPromise;
 	const db = client.db("Tasks");
 	const tasks = await db.collection("Tasks").find({"Username": username}).toArray();

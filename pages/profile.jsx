@@ -6,8 +6,8 @@ import clientPromise from "../lib/mongodb";
 export default function ProfilePage( {username, created} ) {
     return (
         <Layout pageTitle="Profile">
-            <Link href="/">Home</Link><br/>
-            <h2>{username}'s Profile</h2>
+            <Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-2xl" href="/">Home</Link><br/>
+            <h2 className="m-2 text-3xl">{username}'s Profile</h2>
             <p>Account created at <strong>{created}</strong></p>
         </Layout>
     );
