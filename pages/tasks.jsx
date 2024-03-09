@@ -42,22 +42,19 @@ export default function ProfilePage( {username, tasks} ) {
 						className="w-1/2 search-selection my-4 min-w-[350px]"
 					>
 						<div
-							className="w-auto item outsight"
-						></div>
-						<div
-							className="w-auto h-[100px] border-2 border-solid border-blue-200 items-center pl-3 pr-5 flex flex-row justify-start rounded-md hover:bg-slate-700 cursor-pointer"
+							className="w-auto min-h-fit h-auto border-2 border-solid border-blue-200 items-center pl-3 pr-5 flex flex-row justify-start rounded-md hover:bg-slate-700 cursor-pointer"
 						>
 							<div
 								role="textbox"
-								className="px-1 mx-3 w-full h-[20px] text-white focus:outline-none text-2xl flex flex-col justify-evenly items-start bg-transparent whitespace-nowrap"
+								className="px-1 mx-3 w-full h-auto text-white focus:outline-none text-2xl flex flex-col justify-evenly items-start bg-transparent whitespace-nowrap"
 							>
 									<span
-										className="highlight rounded-md px-2 ml-1"
+										className="highlight rounded-md px-2 ml-1 text-wrap"
 									>
 										{task.Taskname}
 									</span>
 									<span
-										className="highlight rounded-md px-2 ml-1"
+										className="highlight rounded-md px-2 ml-1 text-wrap"
 									>
 										{task.Taskdesc}
 									</span>
