@@ -35,7 +35,7 @@ export default function ProfilePage( {username, tasks} ) {
 		<Layout pageTitle="Tasks">
 			<a className="w-auto h-[80px] text-3xl py-2 block text-center" href="/">Home</a>
 			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl" >{username}'s Tasks</h2>
-			<div className="w-full h-[calc(100vh-120px)] flex flex-col justify-center items-center overflow-y-scroll pt-[100px] pb-[20px] hidden-scrollbar">
+			<div className="w-full h-[calc(100vh-120px)] flex flex-col justify-start items-center overflow-y-scroll pb-[20px] hidden-scrollbar">
 				{JSON.parse(tasks).map((task, index) => 
 					(<div
 							key={`${task._id}`}
