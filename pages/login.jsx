@@ -8,13 +8,13 @@ export default function LoginPage( {username} ) {
     const { msg } = router.query
     return (
         <Layout pageTitle="Login">
-            <Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-2xl" href="/">Home</Link><br/>
+            <a className="w-auto h-[80px] text-3xl py-2 block text-center" href="/">Home</a>
             {msg ?
                 <h3 className="red">{msg}</h3>
             :
                 <></>
             }
-            <h2 className="m-2 text-2xl mb-5">Log in</h2>
+            <h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl mb-5">Log in</h2>
             <form action='/api/login' method='POST'>
                 <input minLength="3" name="username" id="username" type="text" placeholder='username' required></input><br/>
                 <input minLength="5" name="password" id="password" type="password" placeholder='password' required></input><br/>

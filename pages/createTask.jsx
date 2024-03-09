@@ -10,13 +10,13 @@ export default function CreateTask( {username, created} ) {
 	const { msg } = router.query
 	return (
 		<Layout pageTitle="Create Task">
-			<Link className="h-[50px] w-auto pt-10 text-3xl" href="/">Home</Link><br/>
+			<a className="w-auto h-[80px] text-3xl py-2 block text-center" href="/">Home</a>
 			{msg ?
 				<h3 className="red">{msg}</h3>
 			:
 				<></>
 			}
-			<h2 className="h-[50px] mt-5 text-2xl">Create a Task</h2>
+			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl mb-5">Create a Task</h2>
 			<form action='/api/createTask' method='POST'>
 				<input minLength="1" name="taskname" id="taskname" type="text" placeholder='Task Name' required></input><br/>
 				<input minLength="1" name="taskdesc" id="taskdesc" type="text" placeholder='Description' required></input><br/>

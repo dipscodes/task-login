@@ -25,8 +25,8 @@ export default function CreateTask( {username, created} ) {
   };
 	return (
     <Layout pageTitle="Create Task">
-			<Link className="h-[50px] w-auto pt-10 text-3xl" href="/">Home</Link><br/>
-			<h2 className="h-[50px] mt-5 text-2xl my-5">Update Task</h2>
+			<a className="w-auto h-[80px] text-3xl py-2 block text-center" href="/">Home</a>
+			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl mb-5">Update Task</h2>
 			<form action='/api/updateTask' method='POST'>
 				<input minLength="1" name="taskname" id="taskname" type="text" placeholder='Task Name' value={taskname} onChange={handleTaskname} required></input><br/>
 				<input minLength="1" name="taskdesc" id="taskdesc" type="text" placeholder='Description' value={taskdesc} onChange={handleTaskdesc} required></input><br/>

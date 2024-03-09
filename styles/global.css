@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +7,7 @@
   --primary: #0ced6a;
   --light-accent: #68d696;
   --dark-accent: #08a449;
-  --secondary: #0CEDDB;
+  --secondary: #0ceddb;
   --red: #ff0000;
   --background: #121212;
   --light-background: #2b2a2a;
@@ -21,11 +21,11 @@ body {
   scroll-behavior: smooth;
   color: var(--font-color);
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-strong { 
-  font-weight: bold; 
+strong {
+  font-weight: bold;
   color: var(--light-accent);
 }
 
@@ -38,7 +38,8 @@ a:hover {
   color: var(--dark-accent);
 }
 
-button,input[type=submit] {
+button,
+input[type="submit"] {
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -51,11 +52,13 @@ button,input[type=submit] {
   font-size: 17px;
 }
 
-button:hover,input[type=submit]:hover {
+button:hover,
+input[type="submit"]:hover {
   border-color: var(--dark-accent);
 }
 
-input[type=text],input[type=password] {
+input[type="text"],
+input[type="password"] {
   padding: 10px;
   border-radius: 30px;
   border: 2px solid var(--primary);
@@ -69,11 +72,17 @@ input[type=text],input[type=password] {
   text-align: center;
 }
 
-input[type=text]:focus,input[type=password]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   border-color: var(--dark-accent);
 }
 
 .red {
   font-weight: bold;
   color: var(--red);
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

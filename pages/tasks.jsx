@@ -33,55 +33,55 @@ export default function ProfilePage( {username, tasks} ) {
 
 	return (
 		<Layout pageTitle="Tasks">
-			<Link className="w-auto h-[30px] flex flex-row justify-center pt-5 text-3xl" href="/">Home</Link><br/>
-			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl my-5" >{username}'s Tasks</h2>
-			<div className="w-full flex flex-col justify-center mt-5 items-center">
-			{JSON.parse(tasks).map((task, index) => 
-				(<div
-						key={`${task._id}`}
-						className="w-1/2 search-selection my-4 min-w-[350px]"
-					>
-						<div
-							className="w-auto min-h-fit h-auto border-2 border-solid border-blue-200 items-center pl-3 pr-5 flex flex-row justify-start rounded-md hover:bg-slate-700 cursor-pointer"
+			<a className="w-auto h-[80px] text-3xl py-2 block text-center" href="/">Home</a>
+			<h2 className="w-auto h-[40px] flex flex-row justify-center items-center text-2xl" >{username}'s Tasks</h2>
+			<div className="w-full h-[calc(100vh-120px)] flex flex-col justify-center items-center overflow-y-scroll pt-[100px] pb-[20px] hidden-scrollbar">
+				{JSON.parse(tasks).map((task, index) => 
+					(<div
+							key={`${task._id}`}
+							className="w-1/2 search-selection my-4 min-w-[350px]"
 						>
 							<div
-								role="textbox"
-								className="px-1 mx-3 w-full h-auto text-white focus:outline-none text-2xl flex flex-col justify-evenly items-start bg-transparent whitespace-nowrap"
+								className="w-auto min-h-fit h-auto border-2 border-solid border-blue-200 items-center pl-3 pr-5 flex flex-row justify-start rounded-md hover:bg-slate-700 cursor-pointer"
 							>
-									<span
-										className="highlight rounded-md px-2 ml-1 text-wrap"
-									>
-										{task.Taskname}
-									</span>
-									<span
-										className="highlight rounded-md px-2 ml-1 text-wrap"
-									>
-										{task.Taskdesc}
-									</span>
-									<span
-										className="highlight rounded-md px-2 ml-1"
-									>
-										{task.Duedate}
-									</span>
+								<div
+									role="textbox"
+									className="px-1 mx-3 w-full h-auto text-white focus:outline-none text-2xl flex flex-col justify-evenly items-start bg-transparent whitespace-nowrap"
+								>
+										<span
+											className="highlight rounded-md px-2 ml-1 text-wrap text-start mb-5 mt-3"
+										>
+											{task.Taskname}
+										</span>
+										<span
+											className="highlight rounded-md px-2 ml-1 text-wrap text-xl text-start mb-5"
+										>
+											{task.Taskdesc}
+										</span>
+										<span
+											className="highlight rounded-md px-2 ml-1 mb-3"
+										>
+											{task.Duedate}
+										</span>
+								</div>
+								<div className="flex flex-col h-full justify-evenly">
+									<RxCrossCircled
+										size={35}
+										className="cursor-pointer text-red-500 mb-5 "
+										onClick={() => deleteOption(task._id)}
+									/>
+									<Link href="/task">
+										<GoPencil
+										size={30}
+										className="cursor-pointer text-green-500"
+										onClick={() => updateTask(task)}
+									/>
+									</Link>
+									
+								</div>
 							</div>
-							<div className="flex flex-col h-full justify-evenly">
-								<RxCrossCircled
-									size={35}
-									className="cursor-pointer text-slate-400"
-									onClick={() => deleteOption(task._id)}
-								/>
-								<Link href="/task">
-									<GoPencil
-									size={30}
-									className="cursor-pointer text-slate-400"
-									onClick={() => updateTask(task)}
-								/>
-								</Link>
-								
-							</div>
-						</div>
-					</div>)
-			)}
+						</div>)
+				)}
 			</div>
 		</Layout>
 	);

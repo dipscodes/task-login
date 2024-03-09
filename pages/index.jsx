@@ -7,16 +7,17 @@ export default function HomePage( {username} ) {
         <Layout pageTitle="Home">
         {username ?
         <>
-            <h2 className="m-2 text-3xl">Hi {username}</h2>
-            <Link href="/profile" className="my-5 text-2xl">Profile</Link><br/>
-            <Link href="/tasks" className="my-5 text-2xl">All Tasks</Link><br/>
-            <Link href="/createTask" className="my-5 text-2xl">Create a Task</Link><br/>
-            <Link href="/api/logout" className="my-5 text-2xl">Logout</Link>
+            <h2 className="w-auto h-[80px] text-3xl py-2 block text-center">Hi {username}</h2>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/profile">My Profile</a>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/tasks">All Tasks</a>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/createTask">Create a Task</a>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/api/logout">Logout</a>
         </>: 
         <div className="">
-            <h2 className="m-2 text-3xl">Task Manager</h2>
-            <Link className="m-2 text-2xl" href="/login">Login</Link><br/>
-            <Link className="m-2 text-2xl" href="/signup">Signup</Link>
+            <h2 className="w-auto h-[80px] text-3xl py-2 block text-center">Task Manager</h2>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/login">Login</a>
+            <a className="w-auto h-auto text-2xl py-1 block text-center" href="/signup">Signup</a>
+
         </div>
         }
         </Layout>
